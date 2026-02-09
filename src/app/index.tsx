@@ -1,10 +1,13 @@
 import { StyleSheet, Text, View } from 'react-native';
 import PageHeader from '../features/home/header';
+import InvestCategories from '../features/invest/category';
 
 export default function Index() {
   return (
     <View style={styles.mainContainer}>
       <PageHeader />
+
+      <InvestCategories />
 
       <View
         style={{
