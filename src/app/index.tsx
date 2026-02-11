@@ -2,6 +2,7 @@ import RenderBottomSheet from '../components/bottom-sheet';
 import PageHeader from '../features/home/header';
 import InvestCategories from '../features/invest/category';
 import InvestRaking from '../features/invest/ranking';
+
 import { ProviderGroup } from '../provider';
 
 import { ScrollView, StyleSheet, View } from 'react-native';
@@ -26,7 +27,7 @@ export default function Index() {
 const styles = StyleSheet.create({
   container: {
     height: '100%',
-    paddingTop: 56,
+    paddingTop: 96,
     backgroundColor: '#F9F9F9',
   },
   mainContainer: {
