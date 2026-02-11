@@ -22,22 +22,22 @@ export default function InvestCategories() {
       <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={styles.scrollContainer}>
         <View style={styles.categoryGroup}>
           {/* ISSUSE: SVG 색상 변질 문제 */}
-          <CategoryFrame title='미술품'>
+          <CategoryFrame title='미술품' handlePress={() => {}}>
             <ArtSVG />
           </CategoryFrame>
-          <CategoryFrame title='음악'>
+          <CategoryFrame title='음악' handlePress={() => {}}>
             <MusicSVG />
           </CategoryFrame>
-          <CategoryFrame title='가축'>
+          <CategoryFrame title='가축' handlePress={() => {}}>
             <CowSVG />
           </CategoryFrame>
-          <CategoryFrame title='부동산'>
+          <CategoryFrame title='부동산' handlePress={() => {}}>
             <HouseSVG />
           </CategoryFrame>
-          <CategoryFrame title='명품'>
+          <CategoryFrame title='명품' handlePress={() => {}}>
             <GoodsSVG />
           </CategoryFrame>
-          <CategoryFrame title='대체투자'>
+          <CategoryFrame title='대체투자' handlePress={() => {}}>
             <InvestmentSVG />
           </CategoryFrame>
         </View>

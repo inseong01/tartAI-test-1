@@ -1,19 +1,20 @@
 import { ReactNode } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 
 import InvestCategoryIcon from './icon';
 
 interface CategoryFrameProps {
   title: string;
+  handlePress: () => void;
   children: ReactNode;
 }
 
-export default function CategoryFrame({ title, children }: CategoryFrameProps) {
+export default function CategoryFrame({ title, handlePress, children }: CategoryFrameProps) {
   return (
-    <View style={styles.box}>
+    <TouchableOpacity style={styles.box} onPress={handlePress} activeOpacity={1}>
       <InvestCategoryIcon>{children}</InvestCategoryIcon>
       <Text style={styles.text}>{title}</Text>
-    </View>
+    </TouchableOpacity>
   );
 }
 
