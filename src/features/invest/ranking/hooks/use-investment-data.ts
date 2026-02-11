@@ -15,6 +15,6 @@ export function useInvestmentData(categoryTap: CategoryTapType, chipTap: string,
   };
 
   return {
-    data: getInvestData(),
+    data: getInvestData().slice(0, 10),
   };
 }
