@@ -17,5 +17,6 @@ const styles = StyleSheet.create({
   container: {
     display: 'flex',
     gap: 16,
+    paddingHorizontal: 20,
   },
 });

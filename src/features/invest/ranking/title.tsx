@@ -1,6 +1,5 @@
-import InfoSVG from '@/src/components/icons/info-svg';
 import TextView from '@/src/components/ui/home/text';
-import UserIcon from '@/src/components/ui/user-icon';
+import ToolTipButton from './tool-tip';
 
 import { StyleSheet, View } from 'react-native';
 
@@ -11,9 +10,7 @@ export default function InvestRakingTitle() {
         조각투자 상품 랭킹
       </TextView>
 
-      <UserIcon>
-        <InfoSVG />
-      </UserIcon>
+      <ToolTipButton />
     </View>
   );
 }
