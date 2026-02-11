@@ -1,6 +1,6 @@
-import BellSVG from '@/src/components/icons/bell-svg';
-import MoreSVG from '@/src/components/icons/more-svg';
-import UserIcon from '@/src/components/ui/user-icon';
+import AlarmButton from './alarm';
+import SettingButton from './setting';
+
 import { StyleSheet, View } from 'react-native';
 
 export default function PageHeader() {
@@ -8,12 +8,8 @@ export default function PageHeader() {
     <View style={styles.headerContainer}>
       <View style={styles.headerRow}>
         <View style={styles.iconWrapper}>
-          <UserIcon>
-            <MoreSVG />
-          </UserIcon>
-          <UserIcon>
-            <BellSVG />
-          </UserIcon>
+          <SettingButton />
+          <AlarmButton />
         </View>
       </View>
     </View>
