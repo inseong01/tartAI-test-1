@@ -1,39 +1,25 @@
-import AlarmButton from './alarm';
-import SettingButton from './setting';
+import MobileStatus from './mobile-row';
+import UserIconGroup from './user-row';
 
 import { StyleSheet, View } from 'react-native';
 
 export default function PageHeader() {
   return (
-    <View style={styles.headerContainer}>
-      <View style={styles.headerRow}>
-        <View style={styles.iconWrapper}>
-          <SettingButton />
-          <AlarmButton />
-        </View>
-      </View>
+    <View style={styles.container}>
+      <MobileStatus />
+      <UserIconGroup />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  headerContainer: {
+  container: {
     width: '100%',
-    paddingTop: 14,
-    paddingBottom: 14,
+    height: 'auto',
     position: 'fixed',
     top: 0,
-  },
-  headerRow: {
-    display: 'flex',
-    justifyContent: 'flex-end',
-    flexDirection: 'row',
-    width: '100%',
-    paddingRight: 20,
-  },
-  iconWrapper: {
-    display: 'flex',
-    flexDirection: 'row',
-    gap: 8,
+    zIndex: 0,
+    backgroundColor: '#FAFAFA',
+    paddingHorizontal: 20,
   },
 });
