@@ -3,21 +3,21 @@ import Card from './components/card';
 import MoreButton from './more';
 import CategoryTap from './tap';
 
-import { useExpandAnimate } from './hooks/use-expand-animate';
+import { useMoreButtonPress } from './hooks/use-button-press';
 import { useInvestmentData } from './hooks/use-investment-data';
 import { useMagageTap } from './hooks/use-manage-tab';
+
+import { INIT_GROUP_HEIGHT } from './constants/const';
 
 import INVESTMENT_DATA from '@/src/mock/investment-data.json';
 
 import { StyleSheet, View } from 'react-native';
-import Animated, { useAnimatedRef } from 'react-native-reanimated';
+import Animated from 'react-native-reanimated';
 
 export default function InvestRakingList() {
   const { categoryTap, chipTap, setCategoryTap, setChipTap } = useMagageTap();
   const { data } = useInvestmentData(categoryTap, chipTap, INVESTMENT_DATA);
-
-  const animatedRef = useAnimatedRef();
-  const { isClicked, tabHeight, expandHeight } = useExpandAnimate(animatedRef);
+  const { buttonValue, animatedRef, tabHeight, pressButton } = useMoreButtonPress();
 
   return (
     <View style={styles.container}>
@@ -39,7 +39,7 @@ export default function InvestRakingList() {
         ))}
       </Animated.View>
 
-      <MoreButton isClicked={isClicked} expandHeight={expandHeight} />
+      <MoreButton value={buttonValue} pressButton={pressButton} />
     </View>
   );
 }
@@ -64,5 +64,6 @@ const styles = StyleSheet.create({
   cardGroup: {
     gap: 16,
     overflow: 'hidden',
+    height: INIT_GROUP_HEIGHT,
   },
 });

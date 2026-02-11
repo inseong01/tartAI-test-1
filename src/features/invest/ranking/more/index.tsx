@@ -1,17 +1,16 @@
 import ColoredText from '@/src/components/ui/invest/ranking/text';
+
 import React from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 
 interface MoreButtonProps {
-  isClicked: boolean;
-  expandHeight: () => void;
+  value: string;
+  pressButton: () => void;
 }
 
-export default function MoreButton({ isClicked, expandHeight }: MoreButtonProps) {
-  const value = isClicked ? '접기' : '펼치기';
-
+export default function MoreButton({ value, pressButton }: MoreButtonProps) {
   return (
-    <TouchableOpacity style={styles.container} onPress={expandHeight} activeOpacity={1}>
+    <TouchableOpacity style={styles.container} onPress={pressButton} activeOpacity={1}>
       <ColoredText type='Zinc500' style={{ fontSize: 16, lineHeight: 22, fontWeight: '700' }}>
         {value}
       </ColoredText>
