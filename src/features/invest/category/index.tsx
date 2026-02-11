@@ -1,12 +1,7 @@
-import ArtSVG from '@/src/components/icons/art-svg';
-import CowSVG from '@/src/components/icons/cow-svg';
-import GoodsSVG from '@/src/components/icons/goods-svg';
-import HouseSVG from '@/src/components/icons/house-svg';
-import InvestmentSVG from '@/src/components/icons/invest-svg';
-import MusicSVG from '@/src/components/icons/music-svg';
-
 import TextView from '@/src/components/ui/home/text';
 import CategoryFrame from '@/src/components/ui/invest/category/frame';
+
+import { Image } from 'expo-image';
 
 import { ScrollView, StyleSheet, View } from 'react-native';
 
@@ -23,22 +18,22 @@ export default function InvestCategories() {
         <View style={styles.categoryGroup}>
           {/* ISSUSE: SVG 색상 변질 문제 */}
           <CategoryFrame title='미술품' handlePress={() => {}}>
-            <ArtSVG />
+            <Image style={styles.imageSize} source={require('./../../../../assets/invest/art.png')} />
           </CategoryFrame>
           <CategoryFrame title='음악' handlePress={() => {}}>
-            <MusicSVG />
+            <Image style={styles.imageSize} source={require('./../../../../assets/invest/music.png')} />
           </CategoryFrame>
           <CategoryFrame title='가축' handlePress={() => {}}>
-            <CowSVG />
+            <Image style={styles.imageSize} source={require('./../../../../assets/invest/cow.png')} />
           </CategoryFrame>
           <CategoryFrame title='부동산' handlePress={() => {}}>
-            <HouseSVG />
+            <Image style={styles.imageSize} source={require('./../../../../assets/invest/house.png')} />
           </CategoryFrame>
           <CategoryFrame title='명품' handlePress={() => {}}>
-            <GoodsSVG />
+            <Image style={styles.imageSize} source={require('./../../../../assets/invest/goods.png')} />
           </CategoryFrame>
           <CategoryFrame title='대체투자' handlePress={() => {}}>
-            <InvestmentSVG />
+            <Image style={styles.imageSize} source={require('./../../../../assets/invest/investment.png')} />
           </CategoryFrame>
         </View>
       </ScrollView>
@@ -69,5 +64,9 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     gap: 12,
+  },
+  imageSize: {
+    width: 44,
+    height: 44,
   },
 });
