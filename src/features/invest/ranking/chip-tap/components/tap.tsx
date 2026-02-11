@@ -11,7 +11,7 @@ interface TapProps {
 export default function Tap({ text, isFocused, onPress }: TapProps) {
   return (
     <TouchableOpacity style={[styles.tapContainer, isFocused && styles.focusedTap]} onPress={onPress} activeOpacity={1}>
-      <ColoredText type={isFocused ? 'base' : 'sub'}>{text}</ColoredText>
+      <ColoredText type={isFocused ? 'Zinc950' : 'Zinc400'}>{text}</ColoredText>
     </TouchableOpacity>
   );
 }

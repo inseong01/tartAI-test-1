@@ -11,7 +11,7 @@ interface TapProps {
 export default function Tap({ text, isActive, onPress }: TapProps) {
   return (
     <Pressable style={styles.tapContainer} onPress={onPress}>
-      <ColoredText type={isActive ? 'base' : 'sub'}>{text}</ColoredText>
+      <ColoredText type={isActive ? 'Zinc950' : 'Zinc400'}>{text}</ColoredText>
     </Pressable>
   );
 }

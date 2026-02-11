@@ -13,7 +13,7 @@ interface CardProps extends InvestmentData {
 export default function Card({ idx, uri, title, ratio, trade_term_date, category }: CardProps) {
   const value = getCategoryValue(category, ratio, trade_term_date);
   const categoryLabel = category === 'ratio' ? '연 환산 수익률' : '매각까지';
-  const textType = category === 'ratio' ? 'highlight' : 'Zinc500';
+  const textColorType = category === 'ratio' ? 'Red600' : 'Red950';
 
   return (
     <View style={styles.container}>
@@ -23,13 +23,13 @@ export default function Card({ idx, uri, title, ratio, trade_term_date, category
         <Image source={uri} style={styles.image} />
       </View>
 
-      <ColoredText type='base' numberOfLines={1} ellipsizeMode='tail'>
+      <ColoredText type='Zinc950' numberOfLines={1} ellipsizeMode='tail'>
         {title}
       </ColoredText>
 
       <View style={styles.valueWrapper}>
-        <ColoredText type={textType}>{value}</ColoredText>
-        <ColoredText type='sub' style={styles.categoryText}>
+        <ColoredText type={textColorType}>{value}</ColoredText>
+        <ColoredText type='Zinc400' style={styles.categoryText}>
           {categoryLabel}
         </ColoredText>
       </View>

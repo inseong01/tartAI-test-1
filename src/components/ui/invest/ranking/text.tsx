@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { StyleSheet, Text, TextProps, TextStyle } from 'react-native';
 
-type ColorType = 'base' | 'sub' | 'Zinc500' | 'highlight' | 'date';
+type ColorType = 'Zinc950' | 'Zinc400' | 'Zinc500' | 'Red600' | 'Red950' | 'Zinc600';
 
 interface ColorProps extends TextProps {
   type: ColorType;
@@ -10,11 +10,12 @@ interface ColorProps extends TextProps {
 }
 
 const colorMap: Record<ColorType, string> = {
-  base: '#09090B',
-  sub: '#9F9FA9',
+  Zinc950: '#09090B',
+  Zinc400: '#9F9FA9',
   Zinc500: '#71717B',
-  highlight: '#FB5353',
-  date: '#2E0808',
+  Zinc600: '#52525C',
+  Red600: '#FB5353',
+  Red950: '#2E0808',
 };
 
 export default function ColoredText({ type, children, style, ...rest }: ColorProps) {
