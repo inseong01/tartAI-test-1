@@ -8,22 +8,22 @@ export function sortByRatioDesc(chipTap: string, DATA: InvestmentData[]) {
       const soldDate = new Date(data.soldAt);
       const soldMs = now.getTime() - soldDate.getTime();
       return soldMs <= ONE_YEAR_MS;
-    }).toSorted((a, b) => b.ratio - a.ratio);
+    }).sort((a, b) => b.ratio - a.ratio);
   }
 
-  return DATA.toSorted((a, b) => b.ratio - a.ratio);
+  return DATA.sort((a, b) => b.ratio - a.ratio);
 }
 
 export function sortByTradeTermAsc(chipTap: string, DATA: InvestmentData[]) {
   if (chipTap === 'recent') {
-    return DATA.toSorted((a, b) => a.trade_term_date - b.trade_term_date);
+    return DATA.sort((a, b) => a.trade_term_date - b.trade_term_date);
   }
 
   if (chipTap === 'sixMonth') {
-    return DATA.filter((data) => data.trade_term_date >= SIX_MONTH).toSorted(
+    return DATA.filter((data) => data.trade_term_date >= SIX_MONTH).sort(
       (a, b) => a.trade_term_date - b.trade_term_date,
     );
   }
 
-  return DATA.filter((data) => data.trade_term_date >= YEAR).toSorted((a, b) => a.trade_term_date - b.trade_term_date);
+  return DATA.filter((data) => data.trade_term_date >= YEAR).sort((a, b) => a.trade_term_date - b.trade_term_date);
 }
