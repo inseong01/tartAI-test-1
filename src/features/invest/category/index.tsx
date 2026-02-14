@@ -8,61 +8,51 @@ import { ScrollView, StyleSheet, View } from 'react-native';
 export default function InvestCategories() {
   return (
     <View style={styles.categoryContainer}>
+      {/* 제목 */}
       <View style={styles.textContainer}>
         <TextView type='large' fontSize={24} lineHeight={34}>
           카테고리별 투자상품 찾기
         </TextView>
       </View>
 
-      <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={styles.scrollContainer}>
-        <View style={styles.categoryGroup}>
-          {/* ISSUSE: SVG 색상 변질 문제 */}
-          <CategoryFrame title='미술품' handlePress={() => {}}>
-            <Image style={styles.imageSize} source={require('./../../../../assets/invest/art.png')} />
-          </CategoryFrame>
-          <CategoryFrame title='음악' handlePress={() => {}}>
-            <Image style={styles.imageSize} source={require('./../../../../assets/invest/music.png')} />
-          </CategoryFrame>
-          <CategoryFrame title='가축' handlePress={() => {}}>
-            <Image style={styles.imageSize} source={require('./../../../../assets/invest/cow.png')} />
-          </CategoryFrame>
-          <CategoryFrame title='부동산' handlePress={() => {}}>
-            <Image style={styles.imageSize} source={require('./../../../../assets/invest/house.png')} />
-          </CategoryFrame>
-          <CategoryFrame title='명품' handlePress={() => {}}>
-            <Image style={styles.imageSize} source={require('./../../../../assets/invest/goods.png')} />
-          </CategoryFrame>
-          <CategoryFrame title='대체투자' handlePress={() => {}}>
-            <Image style={styles.imageSize} source={require('./../../../../assets/invest/investment.png')} />
-          </CategoryFrame>
-        </View>
+      {/* 가로 스크롤 */}
+      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.scrollContainer}>
+        <CategoryFrame title='미술품' handlePress={() => {}}>
+          <Image style={styles.imageSize} source={require('./../../../../assets/invest/art.png')} />
+        </CategoryFrame>
+        <CategoryFrame title='음악' handlePress={() => {}}>
+          <Image style={styles.imageSize} source={require('./../../../../assets/invest/music.png')} />
+        </CategoryFrame>
+        <CategoryFrame title='가축' handlePress={() => {}}>
+          <Image style={styles.imageSize} source={require('./../../../../assets/invest/cow.png')} />
+        </CategoryFrame>
+        <CategoryFrame title='부동산' handlePress={() => {}}>
+          <Image style={styles.imageSize} source={require('./../../../../assets/invest/house.png')} />
+        </CategoryFrame>
+        <CategoryFrame title='명품' handlePress={() => {}}>
+          <Image style={styles.imageSize} source={require('./../../../../assets/invest/goods.png')} />
+        </CategoryFrame>
+        <CategoryFrame title='대체투자' handlePress={() => {}}>
+          <Image style={styles.imageSize} source={require('./../../../../assets/invest/investment.png')} />
+        </CategoryFrame>
       </ScrollView>
     </View>
   );
 }
 
-const basePadding = {
-  paddingLeft: 20,
-  paddingRight: 20,
-};
-
 const styles = StyleSheet.create({
   categoryContainer: {
-    display: 'flex',
     flexDirection: 'column',
+    marginBottom: 20,
     gap: 16,
   },
   textContainer: {
-    ...basePadding,
+    paddingHorizontal: 20,
+    marginBottom: 8,
   },
   scrollContainer: {
-    ...basePadding,
-    width: '100%',
-    flexGrow: 0,
-  },
-  categoryGroup: {
-    display: 'flex',
-    flexDirection: 'row',
+    paddingHorizontal: 20,
+    alignItems: 'center',
     gap: 12,
   },
   imageSize: {
