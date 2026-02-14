@@ -1,3 +1,4 @@
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import RenderBottomSheet from '../src/components/bottom-sheet';
 import PageHeader from '../src/features/home/header';
 import InvestCategories from '../src/features/invest/category';
@@ -11,15 +12,19 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 export default function Index() {
   return (
     <ProviderGroup>
-      <GestureHandlerRootView style={styles.container}>
-        <PageHeader />
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <SafeAreaProvider style={{ flex: 1 }}>
+          <SafeAreaView style={styles.container} edges={['top', 'bottom']}>
+            <PageHeader />
 
-        <ScrollView contentContainerStyle={styles.mainContainer} showsVerticalScrollIndicator={false}>
-          <InvestRaking />
-          <InvestCategories />
-        </ScrollView>
+            <ScrollView contentContainerStyle={styles.mainContainer} showsVerticalScrollIndicator={false}>
+              <InvestRaking />
+              <InvestCategories />
+            </ScrollView>
 
-        <RenderBottomSheet />
+            <RenderBottomSheet />
+          </SafeAreaView>
+        </SafeAreaProvider>
       </GestureHandlerRootView>
     </ProviderGroup>
   );
@@ -29,7 +34,6 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     height: '100%',
-    paddingTop: 96,
     backgroundColor: '#F9F9F9',
   },
   mainContainer: {

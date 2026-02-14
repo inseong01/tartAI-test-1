@@ -1,4 +1,3 @@
-import MobileStatus from './mobile-row';
 import UserIconGroup from './user-row';
 
 import { StyleSheet, View } from 'react-native';
@@ -6,7 +5,7 @@ import { StyleSheet, View } from 'react-native';
 export default function PageHeader() {
   return (
     <View style={styles.container}>
-      <MobileStatus />
+      {/* <MobileStatus /> */}
       <UserIconGroup />
     </View>
   );
