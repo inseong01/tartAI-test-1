@@ -23,9 +23,11 @@ export default function Card({ idx, uri, title, ratio, trade_term_date, category
         <Image source={uri} style={styles.image} />
       </View>
 
-      <ColoredText type='Zinc950' numberOfLines={1} ellipsizeMode='tail'>
-        {title}
-      </ColoredText>
+      <View style={styles.titleWrapper}>
+        <ColoredText type='Zinc950' numberOfLines={1} ellipsizeMode='tail'>
+          {title}
+        </ColoredText>
+      </View>
 
       <View style={styles.valueWrapper}>
         <ColoredText type={textColorType}>{value}</ColoredText>
@@ -53,6 +55,9 @@ const styles = StyleSheet.create({
   image: {
     width: '100%',
     height: '100%',
+  },
+  titleWrapper: {
+    flexShrink: 1,
   },
   valueWrapper: {
     width: 72,
