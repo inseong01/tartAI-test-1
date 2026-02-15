@@ -43,7 +43,6 @@ export default function InvestCategories() {
 const styles = StyleSheet.create({
   categoryContainer: {
     flexDirection: 'column',
-    marginBottom: 20,
     gap: 16,
   },
   textContainer: {
