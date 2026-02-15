@@ -3,7 +3,8 @@ import Card from './components/card';
 import MoreButton from './more';
 import CategoryTap from './tap';
 
-import { useMoreButtonPress } from './hooks/use-button-press';
+import { useButtonPress } from './hooks/use-button-press';
+import { useExpandAnimate } from './hooks/use-expand-animate';
 import { useInvestmentData } from './hooks/use-investment-data';
 import { useMagageTap } from './hooks/use-manage-tab';
 
@@ -17,7 +18,9 @@ import Animated from 'react-native-reanimated';
 export default function InvestRakingList() {
   const { categoryTap, chipTap, setCategoryTap, setChipTap } = useMagageTap();
   const { data } = useInvestmentData(categoryTap, chipTap, INVESTMENT_DATA);
-  const { buttonValue, animatedRef, tabHeight, pressButton } = useMoreButtonPress();
+
+  const { isPressed, pressButton } = useButtonPress();
+  const { animatedRef, animatedTapStyle } = useExpandAnimate(isPressed);
 
   return (
     <View style={styles.container}>
@@ -25,21 +28,13 @@ export default function InvestRakingList() {
 
       <ChipTap categoryTap={categoryTap} chipTap={chipTap} setChipTap={setChipTap} />
 
-      <Animated.View
-        ref={animatedRef}
-        style={[
-          styles.cardGroup,
-          {
-            height: tabHeight,
-          },
-        ]}
-      >
+      <Animated.View ref={animatedRef} style={[styles.cardGroup, animatedTapStyle]}>
         {data.map((data, i) => (
           <Card key={data.id} idx={i + 1} category={categoryTap} {...data} />
         ))}
       </Animated.View>
 
-      <MoreButton value={buttonValue} pressButton={pressButton} />
+      <MoreButton value={isPressed ? '접기' : '펼치기'} pressButton={pressButton} />
     </View>
   );
 }
