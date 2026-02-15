@@ -6,7 +6,7 @@
     "start": "expo start",
     "reset-project": "node ./scripts/reset-project.js",
     "export:web": "expo export --platform web & eas deploy",
-    "depoly:android": "eas build -p android --profile preview",
+    "deploy:android": "eas build -p android --profile preview",
     "prebuild": "expo prebuild",
     "android": "expo run:android",
     "ios": "expo run:ios",
