@@ -5,7 +5,6 @@ import { StyleSheet, View } from 'react-native';
 export default function PageHeader() {
   return (
     <View style={styles.container}>
-      {/* <MobileStatus /> */}
       <UserIconGroup />
     </View>
   );

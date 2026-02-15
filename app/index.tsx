@@ -6,6 +6,7 @@ import InvestRaking from '../src/features/invest/ranking';
 
 import { ProviderGroup } from '../src/provider';
 
+import { StatusBar } from 'expo-status-bar';
 import { ScrollView, StyleSheet } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
@@ -15,6 +16,8 @@ export default function Index() {
       <GestureHandlerRootView style={{ flex: 1 }}>
         <SafeAreaProvider style={{ flex: 1 }}>
           <SafeAreaView style={styles.container} edges={['top', 'bottom']}>
+            <StatusBar translucent style='dark' />
+
             <PageHeader />
 
             <ScrollView contentContainerStyle={styles.mainContainer} showsVerticalScrollIndicator={false}>
