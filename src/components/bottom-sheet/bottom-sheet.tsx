@@ -1,6 +1,8 @@
 import ColoredText from '../ui/invest/ranking/text';
 import RenderBackDrop from './back-drop';
 
+import { useBottomSheetBackButtonHandler } from './hooks/use-back-button-handler';
+
 import BottomSheet, { BottomSheetView } from '@gorhom/bottom-sheet';
 import { ReactNode, RefObject } from 'react';
 import { StyleSheet } from 'react-native';
@@ -15,6 +17,8 @@ const BOTTOM_SPACE = 30;
 const INIT_STATE_OFF = -1;
 
 export default function CustomBottomSheet({ ref, title, description }: CustomBottomSheetProps) {
+  const { handleBottomSheetState } = useBottomSheetBackButtonHandler();
+
   return (
     <BottomSheet
       ref={ref}
@@ -22,6 +26,7 @@ export default function CustomBottomSheet({ ref, title, description }: CustomBot
       enablePanDownToClose
       index={INIT_STATE_OFF}
       backdropComponent={RenderBackDrop}
+      onChange={handleBottomSheetState}
       bottomInset={BOTTOM_SPACE}
       style={styles.container}
       handleStyle={styles.handleStyle}
