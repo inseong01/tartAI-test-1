@@ -65,7 +65,6 @@ const styles = StyleSheet.create({
     flexShrink: 1,
   },
   valueWrapper: {
-    width: 72,
     alignItems: 'flex-end',
   },
 });
