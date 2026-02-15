@@ -1,4 +1,4 @@
-import TextView from '@/src/components/ui/home/text';
+import { PretendardText } from '@/src/components/text/pretendard-text';
 import CategoryFrame from '@/src/components/ui/invest/category/frame';
 
 import { Image } from 'expo-image';
@@ -10,9 +10,9 @@ export default function InvestCategories() {
     <View style={styles.categoryContainer}>
       {/* 제목 */}
       <View style={styles.textContainer}>
-        <TextView type='large' fontSize={24} lineHeight={34}>
+        <PretendardText color='Zinc950' size={24} weight='700' style={{ lineHeight: 34 }}>
           카테고리별 투자상품 찾기
-        </TextView>
+        </PretendardText>
       </View>
 
       {/* 가로 스크롤 */}

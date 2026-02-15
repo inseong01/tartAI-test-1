@@ -38,7 +38,6 @@ const styles = StyleSheet.create({
   },
   text: {
     fontFamily: 'SF Pro Text',
-    fontWeight: '600',
     fontSize: 17,
     lineHeight: 22,
     letterSpacing: -0.41,

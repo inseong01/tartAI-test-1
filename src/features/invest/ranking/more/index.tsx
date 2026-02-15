@@ -1,4 +1,4 @@
-import ColoredText from '@/src/components/ui/invest/ranking/text';
+import { PretendardText } from '@/src/components/text/pretendard-text';
 
 import React from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
@@ -11,9 +11,9 @@ interface MoreButtonProps {
 export default function MoreButton({ value, pressButton }: MoreButtonProps) {
   return (
     <TouchableOpacity style={styles.container} onPress={pressButton} activeOpacity={1}>
-      <ColoredText type='Zinc500' style={{ fontSize: 16, lineHeight: 22, fontWeight: '700' }}>
+      <PretendardText color='Zinc500' size={16} weight='700' style={{ lineHeight: 22 }}>
         {value}
-      </ColoredText>
+      </PretendardText>
     </TouchableOpacity>
   );
 }

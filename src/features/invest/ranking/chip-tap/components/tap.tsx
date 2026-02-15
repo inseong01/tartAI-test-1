@@ -1,4 +1,4 @@
-import ColoredText from '@/src/components/ui/invest/ranking/text';
+import { PretendardText } from '@/src/components/text/pretendard-text';
 
 import { StyleSheet, TouchableOpacity } from 'react-native';
 
@@ -11,7 +11,9 @@ interface TapProps {
 export default function Tap({ text, isFocused, onPress }: TapProps) {
   return (
     <TouchableOpacity style={[styles.tapContainer, isFocused && styles.focusedTap]} onPress={onPress} activeOpacity={1}>
-      <ColoredText type={isFocused ? 'Zinc950' : 'Zinc400'}>{text}</ColoredText>
+      <PretendardText color={isFocused ? 'Zinc950' : 'Zinc400'} size={14} weight='600' style={{ lineHeight: 20 }}>
+        {text}
+      </PretendardText>
     </TouchableOpacity>
   );
 }

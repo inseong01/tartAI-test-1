@@ -1,4 +1,4 @@
-import ColoredText from '../ui/invest/ranking/text';
+import { PretendardText } from '../text/pretendard-text';
 import RenderBackDrop from './back-drop';
 
 import { useBottomSheetBackButtonHandler } from './hooks/use-back-button-handler';
@@ -33,12 +33,12 @@ export default function CustomBottomSheet({ ref, title, description }: CustomBot
       handleIndicatorStyle={styles.handleIndicatorStyle}
     >
       <BottomSheetView style={styles.sheetView}>
-        <ColoredText type='Zinc950' style={{ fontSize: 20, lineHeight: 28 }}>
+        <PretendardText color='Zinc950' size={20} weight='700' style={{ lineHeight: 28 }}>
           {title}
-        </ColoredText>
-        <ColoredText type='Zinc600' style={{ fontSize: 16, lineHeight: 22, fontWeight: '400' }}>
+        </PretendardText>
+        <PretendardText color='Zinc600' size={16} weight='400' style={{ lineHeight: 22 }}>
           {description}
-        </ColoredText>
+        </PretendardText>
       </BottomSheetView>
     </BottomSheet>
   );
@@ -54,6 +54,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 28,
   },
-  handleStyle: { paddingTop: 16, paddingBottom: 0 },
-  handleIndicatorStyle: { backgroundColor: '#D4D4D8' },
+  handleStyle: {
+    paddingTop: 16,
+    paddingBottom: 0,
+  },
+  handleIndicatorStyle: {
+    backgroundColor: '#D4D4D8',
+  },
 });

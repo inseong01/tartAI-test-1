@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
-import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 
+import { PretendardText } from '@/src/components/text/pretendard-text';
 import InvestCategoryIcon from './icon';
 
 interface CategoryFrameProps {
@@ -13,7 +14,10 @@ export default function CategoryFrame({ title, handlePress, children }: Category
   return (
     <TouchableOpacity style={styles.box} onPress={handlePress} activeOpacity={1}>
       <InvestCategoryIcon>{children}</InvestCategoryIcon>
-      <Text style={styles.text}>{title}</Text>
+
+      <PretendardText weight='600' size={14} color='Zinc950' style={styles.text}>
+        {title}
+      </PretendardText>
     </TouchableOpacity>
   );
 }
@@ -27,13 +31,8 @@ const styles = StyleSheet.create({
     gap: 4,
   },
   text: {
-    /* font */
-    fontFamily: 'Pretendard',
-    fontWeight: '600',
-    fontSize: 14,
     /* letter */
     lineHeight: 20,
-    letterSpacing: 0,
     /* text */
     textAlign: 'center',
     textAlignVertical: 'center',

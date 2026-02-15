@@ -1,4 +1,4 @@
-import ColoredText from '@/src/components/ui/invest/ranking/text';
+import { PretendardText } from '@/src/components/text/pretendard-text';
 
 import { Pressable, StyleSheet } from 'react-native';
 
@@ -11,7 +11,9 @@ interface TapProps {
 export default function Tap({ text, isActive, onPress }: TapProps) {
   return (
     <Pressable style={styles.tapContainer} onPress={onPress}>
-      <ColoredText type={isActive ? 'Zinc950' : 'Zinc400'}>{text}</ColoredText>
+      <PretendardText color={isActive ? 'Zinc950' : 'Zinc400'} size={14} weight='600' style={{ lineHeight: 20 }}>
+        {text}
+      </PretendardText>
     </Pressable>
   );
 }
