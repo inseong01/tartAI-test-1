@@ -1,3 +1,4 @@
+import { useTheme } from '@/src/provider/color-theme/use-theme';
 import { ReactNode } from 'react';
 import { StyleSheet, View } from 'react-native';
 
@@ -6,7 +7,23 @@ interface InvestCategoryIconProps {
 }
 
 export default function InvestCategoryIcon({ children }: InvestCategoryIconProps) {
-  return <View style={styles.box}>{children}</View>;
+  const { scheme } = useTheme();
+
+  return (
+    <View
+      style={[
+        styles.box,
+        {
+          borderColor: scheme === 'light' ? '#F4F4F5' : '#3A3A3C',
+        },
+        {
+          shadowColor: scheme === 'light' ? '#F0F0F1' : '#1A1A1C',
+        },
+      ]}
+    >
+      {children}
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -19,7 +36,6 @@ const styles = StyleSheet.create({
     shadowRadius: 6,
     elevation: 3,
     /* border */
-    borderColor: '#F4F4F5',
     borderRadius: 12,
     /* BG */
     backgroundColor: '#fff',

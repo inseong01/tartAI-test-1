@@ -2,6 +2,7 @@ import { CategoryTapType, InvestmentData } from '../constants/types';
 import { getCategoryValue } from '../utils/get-value';
 
 import { PretendardText } from '@/src/components/text/pretendard-text';
+import { useTheme } from '@/src/provider/color-theme/use-theme';
 
 import { Image } from 'expo-image';
 import { StyleSheet, View } from 'react-native';
@@ -15,13 +16,22 @@ export default function Card({ idx, uri, title, ratio, trade_term_date, category
   const value = getCategoryValue(category, ratio, trade_term_date);
   const categoryLabel = category === 'ratio' ? '연 환산 수익률' : '매각까지';
 
+  const { scheme } = useTheme();
+
   return (
     <View style={styles.container}>
       <PretendardText color='Zinc500' size={14} weight='600'>
         {idx}
       </PretendardText>
 
-      <View style={styles.imageWrapper}>
+      <View
+        style={[
+          styles.imageWrapper,
+          {
+            borderColor: scheme === 'light' ? '#F4F4F5' : '#3A3A3C',
+          },
+        ]}
+      >
         <Image source={uri} style={styles.image} />
       </View>
 
@@ -53,7 +63,6 @@ const styles = StyleSheet.create({
     width: 52,
     height: 52,
     borderWidth: 1,
-    borderColor: '#F4F4F5',
     borderRadius: 8,
     overflow: 'hidden',
   },

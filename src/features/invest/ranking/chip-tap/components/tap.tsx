@@ -1,4 +1,5 @@
 import { PretendardText } from '@/src/components/text/pretendard-text';
+import { useTheme } from '@/src/provider/color-theme/use-theme';
 
 import { StyleSheet, TouchableOpacity } from 'react-native';
 
@@ -9,8 +10,19 @@ interface TapProps {
 }
 
 export default function Tap({ text, isFocused, onPress }: TapProps) {
+  const { scheme } = useTheme();
+
   return (
-    <TouchableOpacity style={[styles.tapContainer, isFocused && styles.focusedTap]} onPress={onPress} activeOpacity={1}>
+    <TouchableOpacity
+      style={[
+        styles.tapContainer,
+        isFocused && {
+          backgroundColor: scheme === 'light' ? '#F4F4F5' : '#3A3A3C',
+        },
+      ]}
+      onPress={onPress}
+      activeOpacity={1}
+    >
       <PretendardText color={isFocused ? 'Zinc950' : 'Zinc400'} size={14} weight='600' style={{ lineHeight: 20 }}>
         {text}
       </PretendardText>
@@ -26,8 +38,5 @@ const styles = StyleSheet.create({
     padding: 8,
     borderRadius: 12,
     backgroundColor: 'transparent',
-  },
-  focusedTap: {
-    backgroundColor: '#F4F4F5',
   },
 });

@@ -13,7 +13,7 @@ export default function Index() {
   return (
     <ProviderGroup>
       <AppWrapper>
-        <StatusBar translucent style='dark' />
+        <StatusBar translucent />
 
         <View style={styles.deviceLayout}>
           <PageHeader />
@@ -35,13 +35,8 @@ export default function Index() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F9F9F9',
-  },
   scrollContent: {
     flex: 1,
-    backgroundColor: '#F9F9F9',
   },
   deviceLayout: {
     maxWidth: 460,

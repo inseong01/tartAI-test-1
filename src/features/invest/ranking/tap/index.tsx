@@ -1,3 +1,4 @@
+import { useTheme } from '@/src/provider/color-theme/use-theme';
 import { CategoryTapType } from '../constants/types';
 
 import Tap from './components/tap';
@@ -16,6 +17,8 @@ export default function CategoryTap({ selectedTap, setCategoryTap }: CategoryTap
   const { translateX, tabWidth, handleLayout } = useTabIndicatorAnimate();
   const { handlePress } = useTabAnimate({ tabWidth, translateX, setCategoryTap });
 
+  const { scheme } = useTheme();
+
   return (
     <View style={styles.container} onLayout={handleLayout}>
       <Tap text='연 수익률 순' isActive={selectedTap === 'ratio'} onPress={() => handlePress('ratio')} />
@@ -27,6 +30,9 @@ export default function CategoryTap({ selectedTap, setCategoryTap }: CategoryTap
           {
             width: tabWidth,
             transform: [{ translateX }],
+          },
+          {
+            backgroundColor: scheme === 'light' ? '#09090B' : '#F5F5F5',
           },
         ]}
       />

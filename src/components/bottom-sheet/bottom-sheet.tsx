@@ -1,3 +1,4 @@
+import { useTheme } from '@/src/provider/color-theme/use-theme';
 import { PretendardText } from '../text/pretendard-text';
 import RenderBackDrop from './back-drop';
 
@@ -21,6 +22,8 @@ export default function CustomBottomSheet({ ref, title, description }: CustomBot
   const { handleBottomSheetState } = useBottomSheetBackButtonHandler();
   const insets = useSafeAreaInsets();
 
+  const { scheme } = useTheme();
+
   return (
     <BottomSheet
       ref={ref}
@@ -30,11 +33,31 @@ export default function CustomBottomSheet({ ref, title, description }: CustomBot
       backdropComponent={RenderBackDrop}
       onChange={handleBottomSheetState}
       bottomInset={insets.bottom + BOTTOM_SPACE}
-      style={styles.container}
-      handleStyle={styles.handleStyle}
-      handleIndicatorStyle={styles.handleIndicatorStyle}
+      style={[
+        styles.container,
+        {
+          borderColor: scheme === 'light' ? '#FFFFFF' : '#3A3A3C',
+        },
+      ]}
+      handleStyle={[
+        styles.handleStyle,
+        {
+          backgroundColor: scheme === 'light' ? '#FFFFFF' : '#2C2C2C',
+        },
+      ]}
+      handleIndicatorStyle={[
+        styles.handleIndicatorStyle,
+        { backgroundColor: scheme === 'light' ? '#D4D4D8' : '#4A4A4D' },
+      ]}
     >
-      <BottomSheetView style={styles.sheetView}>
+      <BottomSheetView
+        style={[
+          styles.sheetView,
+          {
+            backgroundColor: scheme === 'light' ? '#FFFFFF' : '#2C2C2C',
+          },
+        ]}
+      >
         <PretendardText color='Zinc950' size={20} weight='700' style={{ lineHeight: 28 }}>
           {title}
         </PretendardText>
@@ -50,6 +73,8 @@ const styles = StyleSheet.create({
   container: {
     display: 'flex',
     marginHorizontal: 11,
+    overflow: 'hidden',
+    borderRadius: 16,
   },
   sheetView: {
     gap: 8,
@@ -62,6 +87,5 @@ const styles = StyleSheet.create({
   },
   handleIndicatorStyle: {
     maxWidth: 100,
-    backgroundColor: '#D4D4D8',
   },
 });

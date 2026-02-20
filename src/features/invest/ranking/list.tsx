@@ -12,6 +12,7 @@ import { INIT_GROUP_HEIGHT } from './constants/const';
 
 import INVESTMENT_DATA from '@/src/mock/investment-data.json';
 
+import { useTheme } from '@/src/provider/color-theme/use-theme';
 import { StyleSheet, View } from 'react-native';
 import Animated from 'react-native-reanimated';
 
@@ -22,8 +23,17 @@ export default function InvestRakingList() {
   const { isPressed, pressButton } = useButtonPress();
   const { animatedRef, animatedTapStyle } = useExpandAnimate(isPressed);
 
+  const { scheme } = useTheme();
+
   return (
-    <View style={styles.container}>
+    <View
+      style={[
+        styles.container,
+        { backgroundColor: scheme === 'light' ? '#fff' : '#2c2c2c' },
+        { borderColor: scheme === 'light' ? '#F4F4F5' : '#2D2D2F' },
+        { shadowColor: scheme === 'light' ? '#F0F0F1' : '#1A1A1C' },
+      ]}
+    >
       <CategoryTap selectedTap={categoryTap} setCategoryTap={setCategoryTap} />
 
       <ChipTap categoryTap={categoryTap} chipTap={chipTap} setChipTap={setChipTap} />
@@ -41,16 +51,13 @@ export default function InvestRakingList() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#fff',
     padding: 16,
     display: 'flex',
     gap: 16,
     /* border */
     borderWidth: 1,
-    borderColor: '#F4F4F5',
     borderRadius: 16,
     /* shadow */
-    shadowColor: '#F0F0F1',
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.5,
     shadowRadius: 6,

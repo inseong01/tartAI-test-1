@@ -1,4 +1,5 @@
 import { PretendardText } from '@/src/components/text/pretendard-text';
+import { useTheme } from '@/src/provider/color-theme/use-theme';
 
 import React from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
@@ -9,8 +10,19 @@ interface MoreButtonProps {
 }
 
 export default function MoreButton({ value, pressButton }: MoreButtonProps) {
+  const { scheme } = useTheme();
+
   return (
-    <TouchableOpacity style={styles.container} onPress={pressButton} activeOpacity={1}>
+    <TouchableOpacity
+      style={[
+        styles.container,
+        {
+          backgroundColor: scheme === 'light' ? '#F4F4F5' : '#3A3A3C',
+        },
+      ]}
+      onPress={pressButton}
+      activeOpacity={1}
+    >
       <PretendardText color='Zinc500' size={16} weight='700' style={{ lineHeight: 22 }}>
         {value}
       </PretendardText>
@@ -23,7 +35,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F4F4F5',
     borderRadius: 12,
     /* padding */
     paddingVertical: 15,
