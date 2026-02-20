@@ -20,7 +20,7 @@ export default function Card({ idx, uri, title, ratio, trade_term_date, category
 
   return (
     <View style={styles.container}>
-      <PretendardText color='Zinc500' size={14} weight='600'>
+      <PretendardText color='Zinc500' size={14} weight='600' lineHeight={20}>
         {idx}
       </PretendardText>
 
@@ -36,16 +36,16 @@ export default function Card({ idx, uri, title, ratio, trade_term_date, category
       </View>
 
       <View style={styles.titleWrapper}>
-        <PretendardText color='Zinc950' size={14} weight='600' numberOfLines={1} ellipsizeMode='tail'>
+        <PretendardText color='Zinc950' size={14} weight='600' lineHeight={20} numberOfLines={1} ellipsizeMode='tail'>
           {title}
         </PretendardText>
       </View>
 
       <View style={styles.valueWrapper}>
-        <PretendardText color={category === 'ratio' ? 'Red600' : 'Red950'} size={14} weight='600'>
+        <PretendardText color={category === 'ratio' ? 'Red600' : 'Red950'} size={14} weight='600' lineHeight={20}>
           {value}
         </PretendardText>
-        <PretendardText color='Zinc400' size={10} weight='400' style={{ lineHeight: 14 }}>
+        <PretendardText color='Zinc400' size={10} weight='400' lineHeight={14}>
           {categoryLabel}
         </PretendardText>
       </View>

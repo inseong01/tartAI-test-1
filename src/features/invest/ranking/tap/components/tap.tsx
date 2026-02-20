@@ -11,7 +11,7 @@ interface TapProps {
 export default function Tap({ text, isActive, onPress }: TapProps) {
   return (
     <Pressable style={styles.tapContainer} onPress={onPress}>
-      <PretendardText color={isActive ? 'Zinc950' : 'Zinc400'} size={14} weight='600' style={{ lineHeight: 20 }}>
+      <PretendardText color={isActive ? 'Zinc950' : 'Zinc400'} size={14} weight='600' lineHeight={20}>
         {text}
       </PretendardText>
     </Pressable>

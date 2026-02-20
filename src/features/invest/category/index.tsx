@@ -10,7 +10,7 @@ export default function InvestCategories() {
     <View style={styles.categoryContainer}>
       {/* 제목 */}
       <View style={styles.textContainer}>
-        <PretendardText color='Zinc950' size={24} weight='700' style={{ lineHeight: 34 }}>
+        <PretendardText color='Zinc950' size={24} weight='700' lineHeight={34}>
           카테고리별 투자상품 찾기
         </PretendardText>
       </View>

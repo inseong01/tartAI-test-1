@@ -15,7 +15,7 @@ export default function CategoryFrame({ title, handlePress, children }: Category
     <TouchableOpacity style={styles.box} onPress={handlePress} activeOpacity={1}>
       <InvestCategoryIcon>{children}</InvestCategoryIcon>
 
-      <PretendardText weight='600' size={14} color='Zinc950' style={styles.text}>
+      <PretendardText weight='600' size={14} color='Zinc950' lineHeight={20} style={styles.text}>
         {title}
       </PretendardText>
     </TouchableOpacity>
@@ -24,16 +24,13 @@ export default function CategoryFrame({ title, handlePress, children }: Category
 
 const styles = StyleSheet.create({
   box: {
-    width: 60,
-    height: 84,
+    minWidth: 60,
+    minHeight: 84,
     display: 'flex',
     alignItems: 'center',
     gap: 4,
   },
   text: {
-    /* letter */
-    lineHeight: 20,
-    /* text */
     textAlign: 'center',
     textAlignVertical: 'center',
   },

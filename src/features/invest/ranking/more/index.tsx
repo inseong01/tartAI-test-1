@@ -23,7 +23,7 @@ export default function MoreButton({ value, pressButton }: MoreButtonProps) {
       onPress={pressButton}
       activeOpacity={1}
     >
-      <PretendardText color='Zinc500' size={16} weight='700' style={{ lineHeight: 22 }}>
+      <PretendardText color='Zinc500' size={16} weight='700' lineHeight={22}>
         {value}
       </PretendardText>
     </TouchableOpacity>

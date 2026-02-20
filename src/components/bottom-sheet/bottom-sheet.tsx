@@ -58,10 +58,10 @@ export default function CustomBottomSheet({ ref, title, description }: CustomBot
           },
         ]}
       >
-        <PretendardText color='Zinc950' size={20} weight='700' style={{ lineHeight: 28 }}>
+        <PretendardText color='Zinc950' size={20} weight='700' lineHeight={28}>
           {title}
         </PretendardText>
-        <PretendardText color='Zinc600' size={16} weight='400' style={{ lineHeight: 22 }}>
+        <PretendardText color='Zinc600' size={16} weight='400' lineHeight={22}>
           {description}
         </PretendardText>
       </BottomSheetView>

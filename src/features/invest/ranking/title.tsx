@@ -7,7 +7,7 @@ import { StyleSheet, View } from 'react-native';
 export default function InvestRakingTitle() {
   return (
     <View style={styles.container}>
-      <PretendardText color='Zinc950' size={20} weight='700' style={{ lineHeight: 28 }}>
+      <PretendardText color='Zinc950' size={20} weight='700' lineHeight={28}>
         조각투자 상품 랭킹
       </PretendardText>
 
