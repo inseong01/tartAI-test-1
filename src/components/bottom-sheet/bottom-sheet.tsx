@@ -61,6 +61,7 @@ const styles = StyleSheet.create({
     paddingBottom: 0,
   },
   handleIndicatorStyle: {
+    maxWidth: 100,
     backgroundColor: '#D4D4D8',
   },
 });

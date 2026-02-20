@@ -15,7 +15,7 @@ export default function InvestRaking() {
 
 const styles = StyleSheet.create({
   container: {
-    display: 'flex',
+    flex: 1,
     gap: 16,
     paddingHorizontal: 20,
   },

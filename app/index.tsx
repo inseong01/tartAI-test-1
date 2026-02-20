@@ -1,4 +1,3 @@
-import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import RenderBottomSheet from '../src/components/bottom-sheet';
 import PageHeader from '../src/features/home/header';
 import InvestCategories from '../src/features/invest/category';
@@ -6,40 +5,49 @@ import InvestRaking from '../src/features/invest/ranking';
 
 import { ProviderGroup } from '../src/provider';
 
+import AppWrapper from '@/src/components/layout';
 import { StatusBar } from 'expo-status-bar';
-import { ScrollView, StyleSheet } from 'react-native';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { ScrollView, StyleSheet, View } from 'react-native';
 
 export default function Index() {
   return (
     <ProviderGroup>
-      <GestureHandlerRootView style={{ flex: 1 }}>
-        <SafeAreaProvider style={{ flex: 1 }}>
-          <SafeAreaView style={styles.container} edges={['top', 'bottom']}>
-            <StatusBar translucent style='dark' />
+      <AppWrapper>
+        <StatusBar translucent style='dark' />
 
-            <PageHeader />
+        <View style={styles.deviceLayout}>
+          <PageHeader />
+        </View>
 
-            <ScrollView contentContainerStyle={styles.mainContainer} showsVerticalScrollIndicator={false}>
+        <ScrollView style={styles.scrollContent} showsVerticalScrollIndicator={false}>
+          <View style={styles.deviceLayout}>
+            <View style={styles.main}>
               <InvestRaking />
               <InvestCategories />
-            </ScrollView>
+            </View>
+          </View>
+        </ScrollView>
 
-            <RenderBottomSheet />
-          </SafeAreaView>
-        </SafeAreaProvider>
-      </GestureHandlerRootView>
+        <RenderBottomSheet />
+      </AppWrapper>
     </ProviderGroup>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    width: '100%',
-    height: '100%',
+    flex: 1,
     backgroundColor: '#F9F9F9',
   },
-  mainContainer: {
+  scrollContent: {
+    flex: 1,
+    backgroundColor: '#F9F9F9',
+  },
+  deviceLayout: {
+    maxWidth: 460,
+  },
+  main: {
+    flex: 1,
     gap: 32,
     paddingTop: 7,
     paddingBottom: 28,
