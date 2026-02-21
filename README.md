@@ -11,6 +11,15 @@
 - TypeScript
 - EAS Build / EAS Deploy
 
+## 개선 사항
+
+1. 기기 레이아웃 보강
+   - 태블릿 대응
+   - 최소/최대 너비 설정
+
+2. 다크 모드 지원
+   - 배경, 글자 색상 적용
+
 ## 실행 방법
 
 ### 1. 의존성 설치
@@ -60,10 +69,10 @@ test-1/
 
 `Web` 환경에서는 바텀 시트의 뒤로가기 닫기 기능이 정상 동작하지 않을 수 있습니다.
 
-[웹 브라우저에서 Expo App 미리보기](https://prap-app--p65e1vs70c.expo.app/)
+[웹 브라우저에서 Expo App 미리보기 (ver1)](https://prap-app--p65e1vs70c.expo.app/)
 
 **Android APK 다운로드**
 
 `Android` 기기에서 아래 링크를 통해 APK를 설치하여 확인할 수 있습니다.
 
-[구글 드라이브 APK 다운로드](https://drive.google.com/file/d/1mEA9PAqJTszxU2yeGqbV0jeLFXsv_qxM/view?usp=drive_link)
+[구글 드라이브 APK 다운로드 (ver2)](https://drive.google.com/file/d/1x0Uu8en3ja-SfbUUjHxK-DXa0FC5zK8a/view?usp=drive_link)
