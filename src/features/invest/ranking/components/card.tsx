@@ -24,7 +24,13 @@ export default function Card({ idx, uri, title, ratio, trade_term_date, category
   return (
     <View style={styles.container}>
       <View style={styles.itemBox}>
-        <PretendardText color='Zinc500' size={14} weight='600' lineHeight={20}>
+        <PretendardText
+          color='Zinc500'
+          size={14}
+          weight='600'
+          lineHeight={20}
+          style={{ minWidth: 16, textAlign: 'center' }}
+        >
           {idx}
         </PretendardText>
 
@@ -93,6 +99,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   valueWrapper: {
+    justifyContent: 'center',
     alignItems: 'flex-end',
   },
 });

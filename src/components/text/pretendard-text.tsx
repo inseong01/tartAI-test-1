@@ -1,6 +1,7 @@
 import { useTheme } from '@/src/provider/color-theme/use-theme';
+
 import React from 'react';
-import { Platform, TextProps as RNTextProps, Text, useWindowDimensions } from 'react-native';
+import { Platform, TextProps as RNTextProps, Text } from 'react-native';
 
 type Weight = '400' | '600' | '700';
 type Size = 10 | 14 | 16 | 20 | 24;
@@ -25,8 +26,6 @@ export function PretendardText({
 }: CustomTextProps) {
   const { scheme } = useTheme();
 
-  const { fontScale } = useWindowDimensions();
-
   const fontFamilyMap: Record<Weight, string> = {
     '400': 'PretendardRegular',
     '600': 'PretendardSemiBold',
@@ -49,9 +48,9 @@ export function PretendardText({
       style={[
         {
           fontFamily: fontFamilyMap[weight],
-          fontSize: Math.floor(size * fontScale),
+          fontSize: size,
           color: colorMap[color],
-          lineHeight: Number((lineHeight * fontScale).toFixed(1)),
+          lineHeight: lineHeight,
           letterSpacing: 0,
         },
         webStyle,

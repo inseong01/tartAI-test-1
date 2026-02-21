@@ -11,7 +11,7 @@ export default function RenderBackDrop(props: any) {
   return (
     <BottomSheetBackdrop
       {...props}
-      opacity={scheme === 'light' ? INIT_OPACITY : INIT_OPACITY * 2}
+      opacity={scheme === 'light' ? INIT_OPACITY : 1}
       disappearsOnIndex={DISAPPEAR_INDEX}
       appearsOnIndex={APPEAR_INDEX}
     />

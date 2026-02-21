@@ -23,7 +23,13 @@ export default function Tap({ text, isFocused, onPress }: TapProps) {
       onPress={onPress}
       activeOpacity={1}
     >
-      <PretendardText color={isFocused ? 'Zinc950' : 'Zinc400'} size={14} weight='600' lineHeight={20}>
+      <PretendardText
+        color={isFocused ? 'Zinc950' : 'Zinc400'}
+        size={14}
+        weight='600'
+        lineHeight={20}
+        style={{ textAlign: 'center' }}
+      >
         {text}
       </PretendardText>
     </TouchableOpacity>
