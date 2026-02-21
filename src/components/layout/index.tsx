@@ -1,5 +1,4 @@
-import useWindowWidth from './hooks/use-window-width';
-
+import { useWindowWidth } from '@/src/hooks/use-window-width';
 import { useTheme } from '@/src/provider/color-theme/use-theme';
 
 import React from 'react';

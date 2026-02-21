@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Dimensions, ScaledSize } from 'react-native';
 
-export default function useWindowWidth(): number {
+export function useWindowWidth(): number {
   const [windowWidth, setWindowWidth] = useState(Dimensions.get('window').width);
 
   useEffect(() => {

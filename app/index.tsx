@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   deviceLayout: {
-    maxWidth: 460,
+    maxWidth: 670,
   },
   main: {
     flex: 1,
