@@ -22,7 +22,7 @@ export default function InvestRakingList() {
   const { data } = useInvestmentData(categoryTap, chipTap, INVESTMENT_DATA);
 
   const { isPressed, pressButton } = useButtonPress();
-  const { animatedTapStyle, setLayout } = useExpandAnimate(isPressed);
+  const { animatedTapStyle } = useExpandAnimate(isPressed);
 
   const { scheme } = useTheme();
 
@@ -40,11 +40,9 @@ export default function InvestRakingList() {
       <ChipTap categoryTap={categoryTap} chipTap={chipTap} setChipTap={setChipTap} />
 
       <Animated.View style={[styles.animateGroup, animatedTapStyle]}>
-        <View style={styles.cardGroup} onLayout={setLayout}>
-          {data.map((data, i) => (
-            <Card key={data.id} idx={i + 1} category={categoryTap} {...data} />
-          ))}
-        </View>
+        {data.map((data, i) => (
+          <Card key={data.id} idx={i + 1} category={categoryTap} {...data} />
+        ))}
       </Animated.View>
 
       <MoreButton value={isPressed ? '접기' : '펼치기'} pressButton={pressButton} />
@@ -69,8 +67,6 @@ const styles = StyleSheet.create({
   animateGroup: {
     overflow: 'hidden',
     height: INIT_GROUP_HEIGHT,
-  },
-  cardGroup: {
     gap: 16,
   },
 });
