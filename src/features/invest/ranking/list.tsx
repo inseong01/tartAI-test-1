@@ -13,6 +13,7 @@ import { INIT_GROUP_HEIGHT } from './constants/const';
 import INVESTMENT_DATA from '@/src/mock/investment-data.json';
 
 import { useTheme } from '@/src/provider/color-theme/use-theme';
+
 import { StyleSheet, View } from 'react-native';
 import Animated from 'react-native-reanimated';
 
@@ -21,7 +22,7 @@ export default function InvestRakingList() {
   const { data } = useInvestmentData(categoryTap, chipTap, INVESTMENT_DATA);
 
   const { isPressed, pressButton } = useButtonPress();
-  const { animatedRef, animatedTapStyle } = useExpandAnimate(isPressed);
+  const { animatedTapStyle, setLayout } = useExpandAnimate(isPressed);
 
   const { scheme } = useTheme();
 
@@ -38,10 +39,12 @@ export default function InvestRakingList() {
 
       <ChipTap categoryTap={categoryTap} chipTap={chipTap} setChipTap={setChipTap} />
 
-      <Animated.View ref={animatedRef} style={[styles.cardGroup, animatedTapStyle]}>
-        {data.map((data, i) => (
-          <Card key={data.id} idx={i + 1} category={categoryTap} {...data} />
-        ))}
+      <Animated.View style={[styles.animateGroup, animatedTapStyle]}>
+        <View style={styles.cardGroup} onLayout={setLayout}>
+          {data.map((data, i) => (
+            <Card key={data.id} idx={i + 1} category={categoryTap} {...data} />
+          ))}
+        </View>
       </Animated.View>
 
       <MoreButton value={isPressed ? '접기' : '펼치기'} pressButton={pressButton} />
@@ -63,9 +66,11 @@ const styles = StyleSheet.create({
     shadowRadius: 6,
     elevation: 3,
   },
-  cardGroup: {
-    gap: 16,
+  animateGroup: {
     overflow: 'hidden',
     height: INIT_GROUP_HEIGHT,
+  },
+  cardGroup: {
+    gap: 16,
   },
 });

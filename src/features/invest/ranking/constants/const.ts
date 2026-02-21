@@ -4,4 +4,4 @@ export const SIX_MONTH = 180;
 
 export const YEAR = 365;
 
-export const INIT_GROUP_HEIGHT = 334;
+export const INIT_GROUP_HEIGHT = 340;
